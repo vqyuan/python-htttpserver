@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+            <script>
+                $(document).ready(function(){
+                    $("#submitButton").click(function(){
+                        $.ajax({
+                            type: 'POST',
+                            url: 'http:localhost:8000/Client.html',
+                            data:  $('#loginForm').serialize(),
+                            success: function(data) {   
+                                $('#displayJWT').text(data);
+                                localStorage.setItem('token', data)
+                            }
+                        });
+                    });
+                })
+
+                $(document).ready(function(){
+                    $("#verifyButton").click(function(){
+                        $.ajax({
+                            url: "/verify.py",
+                            type: 'GET',
+                            headers: {"Authorization": localStorage.getItem('token')},
+                            success: function(data) {   
+                                $('#displayRes').text(data);
+                            }
+                        });
+                    });
+                })
+            </script>
+    </head>
+    <body>
+        The correct credentials are First Name: John, Last Name: Doe<br><br>
+        <form action="" method="post" id="loginForm">
+            First Name:<br>
+            <input type="text" name="firstname"><br>
+            Last Name:<br>
+            <input type="text" name="lastname"><br>
+            <button type="button" id="submitButton">Submit</button><br>
+        </form>
+        
+        JSON Web Token Result:<br>
+        <textarea rows="4" cols="50" id="displayJWT"></textarea><br>
+
+        <button type="button" id="verifyButton">Verify</button><br>
+        <br>Verification Result<br>
+        <textarea rows="1" cols="50" id="displayRes"></textarea>
+
+    </body>
+</html>
+
