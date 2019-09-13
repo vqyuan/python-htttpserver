@@ -14,6 +14,8 @@ This is an implementation of a simple server in python utilizing http.server, ur
 
 * **token_generation** contains the generation function.
 
+* **main.py** runs the unit tests.
+
 ### How to run
 
 1. Either clone the respository or download the .zip file.
