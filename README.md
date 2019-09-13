@@ -16,6 +16,7 @@ This is an implementation of a simple server in python utilizing http.server, ur
 
 ### How to run
 
-Before attempting to run server.py, ensure client.html, token_verification.py and token_generation.py are in the same directory and PyJWT has been added to the path.
-
-After starting server.py, go to http://localhost:8000/client.html where you should see the webpage displayed.
+1. Either clone the respository or download the .zip file.
+2. Install PyJWT using `$ pip install pyjwt` and ensure it has been added to your path
+3. Run server.py through command prompt using `python server.py`
+4. Navigate to http://localhost:8000 where you should see the webpage displayed.
