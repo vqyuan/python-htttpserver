@@ -16,5 +16,5 @@ def generate_token6():
     }, 'secretkey', algorithm='HS512')
 
 # Token generatoin for server
-def generate_token(fname, lname):
-    return jwt.encode({'firstname': fname, 'lastname': lname}, 'symmetrickey', algorithm='HS512')
+def generate_token(username, password):
+    return jwt.encode({'username': username, 'password': password}, 'symmetrickey', algorithm='HS512')

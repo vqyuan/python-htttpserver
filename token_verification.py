@@ -53,7 +53,7 @@ def verify_token5(token):
 
 #Token verification for server
 def verify_token(token):
-    correct_payload = {'firstname': 'John', 'lastname': 'Doe'}
+    correct_payload = {'username': 'user', 'password': 'pass'}
     decoded_token = jwt.decode(token, 'symmetrickey', algorithms=['HS512'])
 
     if decoded_token == correct_payload:
